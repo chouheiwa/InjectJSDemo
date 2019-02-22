@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <!--HTML页面内容需告知为utf8，否则会出现乱码问题-->
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <title>注入测试网页</title>
+    </head>
+    <body bgcolor="#FFFFFF">
+        <h1>Test for inject js</h1>
+        <!--添加一个button按钮用以测试点击事件-->
+        <button onclick="onClickTest()">Test Button</button>
+        <!--这里给input增加一些回调-->
+        <input type="text" placeholder="Test Input1" onchange="onChange()" oninput="onInput()">
+        <input type="text" placeholder="Test Input2" onchange="onChange()" oninput="onInput()">
+    </body>
+    <script type="text/javascript">
+        // 这里是为了测试原有对应事件是否会被覆盖
+        function onChange(input) {
+            console.log("原有 失去焦点");
+            console.log(input);
+        }
+
+        // 这里是为了测试原有对应事件是否会被覆盖
+        function onInput(input) {
+            console.log("原有 键盘输入");
+            console.log(input);
+        }
+    </script>
+</html>
